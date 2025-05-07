@@ -1,8 +1,74 @@
 //! Start by creating the variables for the data recorded
+
+const day1TempF = 32;
+const day2TempC = 25;
+const day3TempF = 70;
+const day4TempC = 18;
+const day5TempF = 80;
+const day6TempC = 15;
+const day7TempF = 72;
+const day8TempC = 28;
+const day9TempF = 68;
+const day10TempC = 20;
+const day11TempF = 75;
+const day12TempC = 23;
+const day13TempF = 82;
+const day14TempC = 30;
+const day15TempF = 65;
+const day16TempC = 22;
+const day17TempF = 77;
+const day18TempC = 26;
+const day19TempF = 78;
+const day20TempC = 24;
+const day21TempF = 73;
+const day22TempC = 21;
+const day23TempF = 79;
+const day24TempC = 27;
+const day25TempF = 71;
+const day26TempC = 19;
+const day27TempF = 74;
+const day28TempC = 17;
+const day29TempF = 76;
+const day30TempC = 29;
+
 //* Then work on the conversion of the temperature from Celsius to Fahrenheit (or viceversa)
 
+// Conversion formulas
+function fToC(f) {
+    return (f - 32) * 5 / 9;
+  }
+  
+  function cToF(c) {
+    return (c * 9 / 5) + 32;
+  }
+  
+  // Fahrenheit to Celsius conversion
+  const tempsInF = [day1TempF, day3TempF, day5TempF, day7TempF, day9TempF, day11TempF, day13TempF, day15TempF, day17TempF, day19TempF, day21TempF, day23TempF, day25TempF, day27TempF, day29TempF];
+  const tempsInC = [day2TempC, day4TempC, day6TempC, day8TempC, day10TempC, day12TempC, day14TempC, day16TempC, day18TempC, day20TempC, day22TempC, day24TempC, day26TempC, day28TempC, day30TempC];
+  
+  // Convert and merge to complete Celsius and Fahrenheit lists
+  const allTempsInCelsius = tempsInC.map(c => c).concat(tempsInF.map(f => fToC(f)));
+  const allTempsInFahrenheit = tempsInF.map(f => f).concat(tempsInC.map(c => cToF(c)));
+  
 
 //! Start the calculation of the total temperatures
+
+// Total and average in Celsius
+let tot_temperature_in_celsius = allTempsInCelsius.reduce((acc, val) => acc + val, 0);
+let avg_temperature_in_celsius = tot_temperature_in_celsius / allTempsInCelsius.length;
+
+// Total and average in Fahrenheit
+let tot_temperature_in_fahrenheit = allTempsInFahrenheit.reduce((acc, val) => acc + val, 0);
+let avg_temperature_in_fahrenheit = tot_temperature_in_fahrenheit / allTempsInFahrenheit.length;
+
+// Optional: Log to see the output
+
+console.log("Total °C:", tot_temperature_in_celsius.toFixed(2));
+console.log("Average °C:", avg_temperature_in_celsius.toFixed(2));
+console.log("Total °F:", tot_temperature_in_fahrenheit.toFixed(2));
+console.log("Average °F:", avg_temperature_in_fahrenheit.toFixed(2));
+
+
 //* Then apply the conversion to calculate the total in the other unit of measurement
 //* Call the variables: tot_temperature_in_fahrenheit and tot_temperature_in_celsius
 
